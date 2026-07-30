@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install dependencies (quran-meta)
+        working-directory: scripts
+        run: npm install
+
       - name: Run seed script
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
