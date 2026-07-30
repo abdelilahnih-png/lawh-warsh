@@ -3,6 +3,6 @@
   "private": true,
   "type": "commonjs",
   "dependencies": {
-    "quran-meta": "^6.1.1"
+    "quran-meta": "^6.0.17"
   }
 }
