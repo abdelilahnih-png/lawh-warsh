@@ -1,0 +1,8 @@
+{
+  "name": "lawh-warsh-scripts",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "quran-meta": "^6.1.1"
+  }
+}
