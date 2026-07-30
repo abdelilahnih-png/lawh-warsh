@@ -15,20 +15,20 @@ jobs:
         with:
           node-version: "20"
 
-      - name: ðŸ”Ž ÙØ­Øµ Ù‡ÙŠÙƒÙ„ Ø§Ù„Ù…Ù„ÙØ§Øª (ØªØ´Ø®ÙŠØµ)
+      - name: Diagnostic - check files and secrets
         run: |
-          echo "== Ù…Ø­ØªÙˆÙ‰ Ø¬Ø°Ø± Ø§Ù„Ù…Ø³ØªÙˆØ¯Ø¹ =="
+          echo "== Repo root =="
           ls -la
           echo ""
-          echo "== Ù…Ø­ØªÙˆÙ‰ Ù…Ø¬Ù„Ø¯ scripts =="
-          ls -la scripts || echo "âš ï¸ Ù…Ø¬Ù„Ø¯ scripts Ù…Ø§ÙƒØ§ÙŠÙ†Ø´!"
+          echo "== scripts folder =="
+          ls -la scripts || echo "MISSING: scripts folder"
           echo ""
-          echo "== ÙˆØ§Ø´ package.json ÙƒØ§ÙŠÙ† Ø¬ÙˆØ§ scriptsØŸ =="
-          test -f scripts/package.json && cat scripts/package.json || echo "âš ï¸ scripts/package.json Ù…Ø§ÙƒØ§ÙŠÙ†Ø´!"
+          echo "== scripts/package.json content =="
+          test -f scripts/package.json && cat scripts/package.json || echo "MISSING: scripts/package.json"
           echo ""
-          echo "== ÙˆØ§Ø´ Ø§Ù„Ù€ secrets Ù…Ø¹Ù…Ø±ÙŠÙ†ØŸ (Ø¨Ù„Ø§ Ù…Ø§ Ù†Ø¨ÙŠÙ†Ùˆ Ø§Ù„Ù‚ÙŠÙ…Ø©) =="
-          if [ -n "${{ secrets.SUPABASE_URL }}" ]; then echo "SUPABASE_URL: âœ“ Ù…Ø¹Ù…Ø±"; else echo "SUPABASE_URL: âœ— ÙØ§Ø±Øº"; fi
-          if [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ]; then echo "SUPABASE_SERVICE_ROLE_KEY: âœ“ Ù…Ø¹Ù…Ø±"; else echo "SUPABASE_SERVICE_ROLE_KEY: âœ— ÙØ§Ø±Øº"; fi
+          echo "== Secrets check (values hidden) =="
+          if [ -n "${{ secrets.SUPABASE_URL }}" ]; then echo "SUPABASE_URL: SET"; else echo "SUPABASE_URL: EMPTY"; fi
+          if [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ]; then echo "SUPABASE_SERVICE_ROLE_KEY: SET"; else echo "SUPABASE_SERVICE_ROLE_KEY: EMPTY"; fi
 
       - name: Install dependencies (quran-meta)
         working-directory: scripts
@@ -38,4 +38,5 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
         run: node scripts/seed-data.js
