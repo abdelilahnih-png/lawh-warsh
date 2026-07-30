@@ -1,6 +1,5 @@
 name: Seed Ayahs
 
-# Manual trigger only: GitHub -> Actions tab -> select this workflow -> Run workflow
 on:
   workflow_dispatch:
 
@@ -15,6 +14,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: ðŸ”Ž ÙØ­Øµ Ù‡ÙŠÙƒÙ„ Ø§Ù„Ù…Ù„ÙØ§Øª (ØªØ´Ø®ÙŠØµ)
+        run: |
+          echo "== Ù…Ø­ØªÙˆÙ‰ Ø¬Ø°Ø± Ø§Ù„Ù…Ø³ØªÙˆØ¯Ø¹ =="
+          ls -la
+          echo ""
+          echo "== Ù…Ø­ØªÙˆÙ‰ Ù…Ø¬Ù„Ø¯ scripts =="
+          ls -la scripts || echo "âš ï¸ Ù…Ø¬Ù„Ø¯ scripts Ù…Ø§ÙƒØ§ÙŠÙ†Ø´!"
+          echo ""
+          echo "== ÙˆØ§Ø´ package.json ÙƒØ§ÙŠÙ† Ø¬ÙˆØ§ scriptsØŸ =="
+          test -f scripts/package.json && cat scripts/package.json || echo "âš ï¸ scripts/package.json Ù…Ø§ÙƒØ§ÙŠÙ†Ø´!"
+          echo ""
+          echo "== ÙˆØ§Ø´ Ø§Ù„Ù€ secrets Ù…Ø¹Ù…Ø±ÙŠÙ†ØŸ (Ø¨Ù„Ø§ Ù…Ø§ Ù†Ø¨ÙŠÙ†Ùˆ Ø§Ù„Ù‚ÙŠÙ…Ø©) =="
+          if [ -n "${{ secrets.SUPABASE_URL }}" ]; then echo "SUPABASE_URL: âœ“ Ù…Ø¹Ù…Ø±"; else echo "SUPABASE_URL: âœ— ÙØ§Ø±Øº"; fi
+          if [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ]; then echo "SUPABASE_SERVICE_ROLE_KEY: âœ“ Ù…Ø¹Ù…Ø±"; else echo "SUPABASE_SERVICE_ROLE_KEY: âœ— ÙØ§Ø±Øº"; fi
 
       - name: Install dependencies (quran-meta)
         working-directory: scripts
