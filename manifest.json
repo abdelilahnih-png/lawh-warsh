@@ -1,0 +1,22 @@
+{
+  "name": "مصحف ورش الملون — مصحف ورش عن نافع",
+  "short_name": "مصحف ورش الملون",
+  "description": "مصحف إلكتروني برواية ورش عن نافع من طريق الأزرق، بتلوين تجويد وتصميم اللوح المغربي التقليدي — قراءة، حفظ، مراجعة، تلاوة، وأذكار.",
+  "id": "/lawh-warsh/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#F2E8D5",
+  "theme_color": "#4A2C18",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["books", "education", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
