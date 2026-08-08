@@ -1,0 +1,49 @@
+{
+  "name": "لوح ورش — Lawh Warsh",
+  "short_name": "لوح ورش",
+  "description": "مصحف إلكتروني برواية ورش عن نافع من طريق الأزرق، مستوحى من اللوح المغربي التقليدي",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2E8D5",
+  "theme_color": "#4A2C18",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "مواقيت الصلاة",
+      "short_name": "مواقيت الصلاة",
+      "description": "الفجر، الظهر، العصر، المغرب، العشاء + القبلة",
+      "url": "./index.html?panel=prayer",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "الختمة",
+      "short_name": "الختمة",
+      "description": "متابعة ورد اليوم من الختمة",
+      "url": "./index.html?panel=khatma",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "الأذكار",
+      "short_name": "الأذكار",
+      "description": "أذكار الصباح والمساء والمسبحة",
+      "url": "./index.html?panel=azkar",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "المفضلة",
+      "short_name": "المفضلة",
+      "description": "الآيات المحفوظة كعلامات مرجعية",
+      "url": "./index.html?panel=bookmarks",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
