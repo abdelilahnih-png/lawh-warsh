@@ -9,7 +9,7 @@
  */
 
 import fs from "node:fs";
-import { QuranRiwaya } from "quran-meta";
+import { getAyahMeta } from "quran-meta/qalun";
 
 const [, , inputPath, outputPath] = process.argv;
 
@@ -21,11 +21,9 @@ if (!inputPath || !outputPath) {
 const warshData = JSON.parse(fs.readFileSync(inputPath, "utf-8"));
 warshData.sort((a, b) => a.id - b.id);
 
-const qalun = QuranRiwaya.qalun();
-
 const qalunAyahList = [];
 for (let ayahId = 1; ayahId <= 6214; ayahId++) {
-  const meta = qalun.getAyahMeta(ayahId);
+  const meta = getAyahMeta(ayahId);
   qalunAyahList.push(meta);
 }
 
