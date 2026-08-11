@@ -1,0 +1,37 @@
+name: Fix Thumn Boundaries
+
+# Manual trigger: go to Actions tab, select this workflow, click "Run workflow"
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-thumn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install quran-meta
+        run: npm install quran-meta
+
+      - name: Run fix script
+        run: node scripts/fix-thumn-boundaries.mjs quran-data.json quran-data-fixed.json
+
+      - name: Upload fixed file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: quran-data-fixed
+          path: quran-data-fixed.json
+
+      - name: Commit fixed file to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add quran-data-fixed.json
+          git commit -m "fix: correct thumn_number automatically" || echo "no changes"
+          git push
