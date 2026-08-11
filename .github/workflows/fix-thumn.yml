@@ -1,7 +1,4 @@
 name: Fix Thumn Boundaries
-
-# ÙƒØªØ´ØºÙ„ ÙŠØ¯ÙˆÙŠØ§: Ù…Ù† ØªØ¨ÙˆÙŠØ¨ "Actions" ÙØ§Ù„Ø±ÙŠØ¨ÙˆØŒ Ø§Ø®ØªØ§Ø± Ù‡Ø§Ø¯ Ø§Ù„Ù€ workflow
-# ÙˆØ¶ØºØ· Ø§Ù„Ø²Ø± "Run workflow"
 on:
   workflow_dispatch:
 
@@ -15,7 +12,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install quran-meta
         run: npm install quran-meta
@@ -34,5 +31,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add quran-data-fixed.json
-          git commit -m "fix: ØªØµØ­ÙŠØ­ thumn_number ØªÙ„Ù‚Ø§Ø¦ÙŠØ§" || echo "Ù„Ø§ ØªØºÙŠÙŠØ±Ø§Øª Ø¬Ø¯ÙŠØ¯Ø©"
+          git commit -m "fix: correct thumn_number automatically" || echo "no changes"
           git push
